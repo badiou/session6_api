@@ -5,6 +5,7 @@ from flask_migrate import Migrate
 from dotenv import load_dotenv
 from urllib.parse import quote_plus
 import os
+#python3 -m venv venv          et    venv\Scripts\activate
 #psql -h localhost -p 5432 -U postgres -d session6_db -f plants_database.sql ceci est la commande pour exécuter vers la base de données
 ###################################################################################################################
 #
