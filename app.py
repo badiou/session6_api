@@ -155,5 +155,7 @@ def create_app(test_config=None):
     def method_not_allowed(error):
         return (jsonify({'success': False, 'error': 405,
                 'message': 'method not allowed'}), 405)
-
+        
+    if __name__ == "__main__":
+        app.run(debug=True)
     return app
