@@ -47,15 +47,16 @@ class PlanttestCase(unittest.TestCase):
         data = json.loads(res.data)
         self.assertEqual(res.status_code, 200)
         self.assertEqual(data['success'], True)
-        self.assertTrue(data['plants'])
+        self.assertTrue(data['plantes'])
         self.assertEqual(data['totals_plants'],len(Plant.query.all()))
 
-    # def test_paginate_plants(self):
-    #     res = self.client().get('/plants')
-    #     data = json.loads(res.data)
-    #     self.assertEqual(res.status_code, 200)
-    #     self.assertTrue(data['current_plants'])
-    #     self.assertTrue(data['current_plants'])
+    def test_paginate_plants(self):
+        res = self.client().get('/plants/1')
+        data = json.loads(res.data)
+        self.assertEqual(res.status_code, 200)
+        self.assertTrue(data['plant'])
+        self.assertEqual(data['success'], True)
+       
 
     # def test_delete_plant(self):
     #     res=self.client().delete('/plants/101')
@@ -92,12 +93,12 @@ class PlanttestCase(unittest.TestCase):
     #     self.assertEqual(data['success'], False)
     #     self.assertEqual(data['message'], 'Not found')
 
-    # def test_404_requesting_select_on_plant(self):
-    #     res=self.client().get('/plants/1000')
-    #     data=json.loads(res.data)
-    #     self.assertEqual(res.status_code, 404)
-    #     self.assertEqual(data['success'], False)
-    #     self.assertEqual(data['message'], 'Not found')
+    def test_404_requesting_select_on_plant(self):
+        res=self.client().get('/plants/1000')
+        data=json.loads(res.data)
+        self.assertEqual(res.status_code, 404)
+        self.assertEqual(data['success'], False)
+        self.assertEqual(data['message'], '404 Not found')
     
     # def test_update_plant_primary_color(self):
     #     res=self.client().patch('/plants/102',json={'primary_color':'Gray'})

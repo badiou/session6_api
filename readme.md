@@ -1,5 +1,5 @@
-# Exemple de syntaxe de doc depuis le site www.dillinger.io
-## _The Last Markdown Editor, Ever_
+# API de Gestion des plantes dans Udacity
+## _API developpé en session 6 et 7_
 
 [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
 
@@ -14,7 +14,7 @@ AngularJS-powered HTML5 Markdown editor.
 
 ## Features
 
-- Import a HTML file and watch it magically convert to Markdown
+- Session 6
 - Drag and drop images (requires your Dropbox account be linked)
 - Import and save files from GitHub, Dropbox, Google Drive and One Drive
 - Drag and drop markdown and HTML files into Dillinger
@@ -61,9 +61,10 @@ Dillinger requires [Node.js](https://nodejs.org/) v10+ to run.
 Install the dependencies and devDependencies and start the server.
 
 ```sh
-cd dillinger
-npm i
-node app
+pip install -r requirements.txt
+python3 -m venv venv 
+venv\Scripts\activate
+
 ```
 
 For production environments...

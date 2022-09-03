@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request, abort
 from models import setup_db, Plant
 from flask_cors import CORS
 import random
+from auth import AuthError, requires_auth
 
 PLANTS_PER_PAGE = 10
 
@@ -19,18 +20,19 @@ def create_app(test_config=None):
     app = Flask(__name__)
     setup_db(app)
     CORS(app)
-    #CORS(app, resources={r"/api/*": {'origins': '*'}})
+    # CORS(app, resources={r"/api/*": {'origins': '*'}})
 
     @app.after_request
     def after_request(response):
         response.headers.add('Access-Control-Allow-Headers',
                              'Content-Type,Authorization,true')
         response.headers.add('Access-Control-Allow-Methods',
-                             'GET,PUT,POST,DELETE,OPTIONS')
+                             'GET,PATCH,PUT,POST,DELETE,OPTIONS')
         return response
 
     @app.route('/plants')
-    def get_plants():
+    @requires_auth('get:plants')
+    def get_plants(payload):
         plants = Plant.query.all()
         current_plants = paginate_plants(request, plants)
         if len(current_plants) == 0:
@@ -39,7 +41,7 @@ def create_app(test_config=None):
             formatted_plants = current_plants
             return jsonify({
                 'success': True,
-                'plants': formatted_plants,
+                'plantes': formatted_plants,
                 'totals_plants': len(Plant.query.all())
             })
 
@@ -134,7 +136,7 @@ def create_app(test_config=None):
     @app.errorhandler(404)
     def not_found(error):
         return (jsonify({'success': False, 'error': 404,
-                'message': 'Not found'}), 404)
+                'message': '404 Not found'}), 404)
 
     @app.errorhandler(422)
     def unprocessable(error):

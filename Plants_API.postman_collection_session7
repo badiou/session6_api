@@ -1,0 +1,157 @@
+{
+	"info": {
+		"_postman_id": "879f6028-8b27-4e61-8b1e-33409fe8f74a",
+		"name": "Plants_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4911123"
+	},
+	"item": [
+		{
+			"name": "GET ALL PLANTS",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik0wTkRRa1JCTWprNVFUVTJNa05HTVVZeE1VTTBOams0TnpoR09UUXdRekl4TmpNNE5ERTVRdyJ9.eyJpc3MiOiJodHRwczovL2ZzbmR0b2dvLmV1LmF1dGgwLmNvbS8iLCJzdWIiOiJxUUQzZW13RnZpTHcwWHNhdUNGdndkYlBuVkRRTXQ3a0BjbGllbnRzIiwiYXVkIjoic3R1ZGVudHMiLCJpYXQiOjE2NjIyMjM4MTIsImV4cCI6MTY2MjMxMDIxMiwiYXpwIjoicVFEM2Vtd0Z2aUx3MFhzYXVDRnZ3ZGJQblZEUU10N2siLCJzY29wZSI6ImdldDpwbGFudHMiLCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6cGxhbnRzIl19.WIuZ11KIo9R-Rffp0vWUjE3Usk5HYGUXqKWXRtMU44jDQ4UH2O2fe4_EBlMNANNTpFpERLkHniDDmJk_EDn_7c0HzgWbldeVOwc8am9hipqIy-2RSnhDJ6oV8mw7DD9BrO80F8BxLmYLFlCMv-ZnG2FK8ACtpvr3hSPeoQy7Kvl8saUSAPC_zcX8HpQtNZwNVDuO2MYZRHheD_9jrk1XoDWJyGlUPGRsO-I3F_exrILdXyvwMt7KNKWOkWC0ZOBkAEr5iqN6Hpe4hBG53zDbb8ECtlQEs_lNL4lG7brwrSCJSBiSvH6AhGicGwt8rHjOqek93TT49gGntIJHC6VBTw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{host}}/plants",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"plants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ONE PLANT",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{host}}/plants/1",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"plants",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE PLAN",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"primary_color\":\"black\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{host}}/plants/1",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"plants",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE PLANT",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://{{host}}/plants/17",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"plants",
+						"17"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADD PLANT",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"primary_color\":\"yellow\",\n    \"is_poisonous\":true,\n    \"scientific_name\":\"yellow\",\n    \"name\":\"Salade\",\n    \"state\":\"Gondwana\"\n\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{host}}/plants",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"plants"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "localhost:5000"
+		}
+	]
+}

@@ -1,11 +1,12 @@
 # Full Stack PLANTS API
 
+cette api permet de gérer les plantes.................
 ## Getting Started
 
 ### Installing Dependencies
 
-#### Python 3.8.5
-#### pip 20.0.2 from /usr/lib/python3/dist-packages/pip (python 3.8)
+#### Python 3.10.5
+#### pip 22.2.2 from C:\Users\PC\Desktop\plants_api-main\venv\lib\site-packages\pip (python 3.10)
 
 Follow instructions to install the latest version of python for your platform in the [python docs](https://docs.python.org/3/using/unix.html#getting-and-installing-the-latest-version-of-python)
 
