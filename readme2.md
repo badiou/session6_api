@@ -81,7 +81,8 @@ The API will return four error types when requests fail:
 . 400: Bad request
 . 500: Internal server error
 . 422: Unprocessable
-. 404: Not found
+. 404: 404 Not found
+. 405: Method not Allowed
 
 ## Endpoints
 . ## GET/plants

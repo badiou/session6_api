@@ -20,12 +20,12 @@ def create_app(test_config=None):
     app = Flask(__name__)
     setup_db(app)
     CORS(app)
-    # CORS(app, resources={r"/api/*": {'origins': '*'}})
+    #CORS(app, resources={r"/api/*": {'origins': '*'}})
 
     @app.after_request
     def after_request(response):
         response.headers.add('Access-Control-Allow-Headers',
-                             'Content-Type,Authorization,true')
+                             'Content-Type,Authorization')
         response.headers.add('Access-Control-Allow-Methods',
                              'GET,PATCH,PUT,POST,DELETE,OPTIONS')
         return response
@@ -41,7 +41,7 @@ def create_app(test_config=None):
             formatted_plants = current_plants
             return jsonify({
                 'success': True,
-                'plantes': formatted_plants,
+                'plants': formatted_plants,
                 'totals_plants': len(Plant.query.all())
             })
 
@@ -157,6 +157,11 @@ def create_app(test_config=None):
     def method_not_allowed(error):
         return (jsonify({'success': False, 'error': 405,
                 'message': 'method not allowed'}), 405)
+        
+    @app.errorhandler(505)
+    def version_http(error):
+        return (jsonify({'success': False, 'error': 505,
+                'message': 'Http version not supported'}), 505)
         
     if __name__ == "__main__":
         app.run(debug=True)

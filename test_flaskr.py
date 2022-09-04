@@ -24,6 +24,7 @@ class PlanttestCase(unittest.TestCase):
             self.db.init_app(self.app)
             # create all tables
             self.db.create_all()
+            
         self.new_plant = {
             'name': 'Champignon vénimeux',
             'is_poisonous': True,
@@ -47,15 +48,15 @@ class PlanttestCase(unittest.TestCase):
         data = json.loads(res.data)
         self.assertEqual(res.status_code, 200)
         self.assertEqual(data['success'], True)
-        self.assertTrue(data['plantes'])
+        self.assertTrue(data['plants'])
         self.assertEqual(data['totals_plants'],len(Plant.query.all()))
-
-    def test_paginate_plants(self):
-        res = self.client().get('/plants/1')
-        data = json.loads(res.data)
-        self.assertEqual(res.status_code, 200)
-        self.assertTrue(data['plant'])
-        self.assertEqual(data['success'], True)
+#Good test
+    # def test_paginate_plants(self):
+    #     res = self.client().get('/plants/1')
+    #     data = json.loads(res.data)
+    #     self.assertEqual(res.status_code, 200)
+    #     self.assertTrue(data['plant'])
+    #     self.assertEqual(data['success'], True)
        
 
     # def test_delete_plant(self):
@@ -92,9 +93,9 @@ class PlanttestCase(unittest.TestCase):
     #     self.assertEqual(res.status_code, 404)
     #     self.assertEqual(data['success'], False)
     #     self.assertEqual(data['message'], 'Not found')
-
+#Good test
     def test_404_requesting_select_on_plant(self):
-        res=self.client().get('/plants/1000')
+        res=self.client().get('/plants/189999')
         data=json.loads(res.data)
         self.assertEqual(res.status_code, 404)
         self.assertEqual(data['success'], False)

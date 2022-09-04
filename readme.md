@@ -1,5 +1,5 @@
-# API de Gestion des plantes dans Udacity
-## _API developpé en session 6 et 7_
+# API pour la gestion des plantes
+## _Cette API est développée dans le cadre de la session N°7_
 
 [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
 
@@ -14,7 +14,7 @@ AngularJS-powered HTML5 Markdown editor.
 
 ## Features
 
-- Session 6
+- Cette API est devlopée avec le Framework python appelé FLASK
 - Drag and drop images (requires your Dropbox account be linked)
 - Import and save files from GitHub, Dropbox, Google Drive and One Drive
 - Drag and drop markdown and HTML files into Dillinger
@@ -62,9 +62,10 @@ Install the dependencies and devDependencies and start the server.
 
 ```sh
 pip install -r requirements.txt
-python3 -m venv venv 
-venv\Scripts\activate
-
+```
+ou
+```sh
+pip3 install -r requirements.txt
 ```
 
 For production environments...
